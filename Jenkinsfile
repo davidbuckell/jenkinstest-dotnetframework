@@ -7,9 +7,7 @@ pipeline {
     stage('Build') {
       steps {
 		script {
-			bat {
-				msbuild jenkinstest-dotnetframework.sln
-			}
+			bat "msbuild jenkinstest-dotnetframework.sln"			
 		}      	
       }
     }    
