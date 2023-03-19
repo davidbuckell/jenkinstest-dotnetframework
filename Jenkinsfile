@@ -6,12 +6,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-      	withDotNet(sdk: '.NET 6') {
-	  sh '''
-            dotnet restore
-            dotnet build
-          '''
-      	}
+      	bat {
+			msbuild jenkinstest-dotnetframework.sln
+		}
       }
     }    
   }
