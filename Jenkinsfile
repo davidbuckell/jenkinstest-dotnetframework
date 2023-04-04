@@ -4,11 +4,15 @@ pipeline {
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = 1
   }
   stages {
-    stage('Build') {
+    stage('Pre-requisites') {
       steps {
-		script {
-			bat "msbuild jenkinstest-dotnetframework.sln"			
-		}      	
+		    script {
+          bat "node -v"
+          bat "npm -v"
+			    bat "npm uninstall -g firebase-tools"
+          bat "npm install -g firebase-tools"
+          bat "firebase -V"
+		    }      	
       }
     }    
   }
